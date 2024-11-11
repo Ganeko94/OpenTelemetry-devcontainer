@@ -1,0 +1,53 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+#  jmx:
+#    jar_path: /opt/opentelemetry-jmx-metrics.jar
+#    #endpoint: 0.0.0.0:5678
+#    endpoint: host.docker.internal:5678
+#    target_system: jvm
+#    collection_interval: 10s
+#    #initial_delay: 1s
+#    # optional: the same as specifying OTLP receiver endpoint.
+#    otlp:
+#      endpoint: otel-collector:4317
+#    #username: my_jmx_username
+#    # determined by the environment variable value
+#    #password: ${env:MY_JMX_PASSWORD}
+#    #resource_attributes:
+#    #  my.attr: my.value
+#    #  my.other.attr: my.other.value
+#    #log_level: info
+
+processors:
+
+extensions:
+  health_check: {}
+
+exporters:
+  debug:
+    verbosity: detailed # Es opcional, lo add temporalmente para ver como son las trazas que suelta
+  otlp/jaeger: # Jaeger supports OTLP directly. The default port for OTLP/gRPC is 4317
+    #endpoint: otel-collector:4317
+    endpoint: jaeger-all-in-one:4317
+    tls:
+      insecure: true
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+#  loki:
+#    endpoint: http://loki:3100/loki/api/v1/push
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [debug, otlp/jaeger]
+    metrics:
+      #receivers: [otlp, jmx]
+      receivers: [otlp]
+      exporters: [debug, prometheus]
+#    logs:
+#      receivers: [otlp]
+#      exporters: [debug, logging]
