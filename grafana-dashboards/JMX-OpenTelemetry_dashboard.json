@@ -1,41 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_THANOS",
-      "label": "PBFA97CFB590B2093",
-      "description": "Prometheus data",
-      "type": "datasource",
-      "pluginId": "PBFA97CFB590B2093",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "9.3.6"
-    },
-    {
-      "type": "panel",
-      "id": "heatmap",
-      "name": "Heatmap",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -63,7 +26,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 17582,
   "graphTooltip": 0,
-  "id": null,
+  "id": 3,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -83,7 +46,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_THANOS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "Warning: in a Kubernetes context this data is misleading as it compare against the whole server CPU and not the pod CPU limit. Look at the Kubernetes pod systat dashboard instead.",
       "fieldConfig": {
@@ -92,11 +55,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -105,6 +70,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -164,10 +130,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_cpu_recent_utilization_ratio{instance=~\"$instance\",pod=~\"$pod\"}",
+          "expr": "jvm_cpu_recent_utilization_ratio{instance=~\"$instance\"}",
           "legendFormat": "CPU utilization (whole system)",
           "range": true,
           "refId": "A"
@@ -175,10 +141,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_cpu_recent_utilization_ratio{instance=~\"$instance\",pod=~\"$pod\"}",
+          "expr": "jvm_cpu_recent_utilization_ratio{instance=~\"$instance\"}",
           "hide": false,
           "legendFormat": "JVM CPU utilization",
           "range": true,
@@ -191,7 +157,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_THANOS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -199,11 +165,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -212,6 +180,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -268,10 +237,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_system_cpu_load_1m{instance=~\"$instance\",pod=~\"$pod\"}",
+          "expr": "jvm_system_cpu_load_1m{instance=~\"$instance\"}",
           "legendFormat": "Average CPU load",
           "range": true,
           "refId": "A"
@@ -296,7 +265,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_THANOS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -304,11 +273,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 25,
             "gradientMode": "none",
@@ -317,6 +288,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -374,10 +346,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(jvm_memory_used_bytes{instance=~\"$instance\",pod=~\"$pod\",jvm_memory_type=\"heap\"})",
+          "expr": "sum(jvm_memory_used_bytes{instance=~\"$instance\",jvm_memory_type=\"heap\"})",
           "legendFormat": "Heap used",
           "range": true,
           "refId": "A"
@@ -385,10 +357,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(jvm_memory_committed_bytes{instance=~\"$instance\",pod=~\"$pod\",jvm_memory_type=\"heap\"})",
+          "expr": "sum(jvm_memory_committed_bytes{instance=~\"$instance\",jvm_memory_type=\"heap\"})",
           "hide": false,
           "legendFormat": "Heap committed",
           "range": true,
@@ -397,10 +369,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(jvm_memory_limit_bytes{instance=~\"$instance\",pod=~\"$pod\",jvm_memory_type=\"heap\"})",
+          "expr": "sum(jvm_memory_limit_bytes{instance=~\"$instance\",jvm_memory_type=\"heap\"})",
           "hide": false,
           "legendFormat": "Heap max obtainable",
           "range": true,
@@ -413,7 +385,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_THANOS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -421,11 +393,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 25,
             "gradientMode": "none",
@@ -434,6 +408,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -491,10 +466,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_memory_used_bytes{instance=~\"$instance\",pod=~\"$pod\"}",
+          "expr": "jvm_memory_used_bytes{instance=~\"$instance\"}",
           "legendFormat": "{{ jvm_memory_type }} - {{ jvm_memory_pool_name }}",
           "range": true,
           "refId": "A"
@@ -506,7 +481,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_THANOS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -514,11 +489,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 25,
             "gradientMode": "none",
@@ -527,6 +504,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -584,10 +562,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_memory_committed_bytes{instance=~\"$instance\",pod=~\"$pod\"}",
+          "expr": "jvm_memory_committed_bytes{instance=~\"$instance\"}",
           "legendFormat": "{{ jvm_memory_type }} - {{ jvm_memory_pool_name }}",
           "range": true,
           "refId": "A"
@@ -599,7 +577,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_THANOS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -607,11 +585,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 25,
             "gradientMode": "none",
@@ -620,6 +600,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -677,10 +658,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_memory_limit_bytes{instance=~\"$instance\",pod=~\"$pod\"}",
+          "expr": "jvm_memory_limit_bytes{instance=~\"$instance\"}",
           "legendFormat": "{{ jvm_memory_type }} - {{ jvm_memory_pool_name }}",
           "range": true,
           "refId": "A"
@@ -705,7 +686,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_THANOS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -713,11 +694,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -726,6 +709,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -782,10 +766,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_thread_count{instance=~\"$instance\",pod=~\"$pod\"}",
+          "expr": "jvm_thread_count{instance=~\"$instance\"}",
           "legendFormat": "Daemon: {{jvm_thread_daemon}} - State: {{jvm_thread_state}}",
           "range": true,
           "refId": "A"
@@ -810,7 +794,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_THANOS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -860,7 +844,8 @@
           "layout": "auto"
         },
         "tooltip": {
-          "show": true,
+          "mode": "single",
+          "showColorScale": false,
           "yHistogram": false
         },
         "yAxis": {
@@ -869,17 +854,17 @@
           "unit": "dtdurationms"
         }
       },
-      "pluginVersion": "9.3.6",
+      "pluginVersion": "11.2.0",
       "repeat": "gc_action",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(round(rate(jvm_gc_duration_seconds_bucket{instance=~\"$instance\",pod=~\"$pod\",jvm_gc_action=\"end of minor GC\"}[$__interval]) * $__interval_ms / 1000)) by (le)",
+          "expr": "sum(round(rate(jvm_gc_duration_seconds_bucket{instance=~\"$instance\",jvm_gc_action=\"end of minor GC\"}[$__interval]) * $__interval_ms / 1000)) by (le)",
           "format": "heatmap",
           "interval": "5m",
           "legendFormat": "{{ le }}",
@@ -893,7 +878,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_THANOS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -943,7 +928,8 @@
           "layout": "auto"
         },
         "tooltip": {
-          "show": true,
+          "mode": "single",
+          "showColorScale": false,
           "yHistogram": false
         },
         "yAxis": {
@@ -952,16 +938,16 @@
           "unit": "dtdurationms"
         }
       },
-      "pluginVersion": "9.3.6",
+      "pluginVersion": "11.2.0",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(round(rate(jvm_gc_duration_seconds_bucket{instance=~\"$instance\",pod=~\"$pod\",jvm_gc_action=\"end of major GC\"}[$__interval]) * $__interval_ms / 1000)) by (le)",
+          "expr": "sum(round(rate(jvm_gc_duration_seconds_bucket{instance=~\"$instance\",jvm_gc_action=\"end of major GC\"}[$__interval]) * $__interval_ms / 1000)) by (le)",
           "format": "heatmap",
           "interval": "5m",
           "legendFormat": "{{ le }}",
@@ -988,7 +974,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_THANOS}"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -996,11 +982,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 25,
             "gradientMode": "none",
@@ -1009,6 +997,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1066,10 +1055,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_class_count{instance=~\"$instance\",pod=~\"$pod\"}",
+          "expr": "jvm_class_count{instance=~\"$instance\"}",
           "legendFormat": "Currently loaded",
           "range": true,
           "refId": "A"
@@ -1077,10 +1066,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_class_loaded_total{instance=~\"$instance\",pod=~\"$pod\"}",
+          "expr": "jvm_class_loaded_total{instance=~\"$instance\"}",
           "hide": false,
           "legendFormat": "Loaded since JVM start",
           "range": true,
@@ -1089,10 +1078,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_THANOS}"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_class_unloaded_total{instance=~\"$instance\",pod=~\"$pod\"}",
+          "expr": "jvm_class_unloaded_total{instance=~\"$instance\"}",
           "hide": false,
           "legendFormat": "Unloaded since JVM start",
           "range": true,
@@ -1104,8 +1093,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 37,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [
     "JVM",
     "JMX",
@@ -1114,48 +1102,25 @@
   "templating": {
     "list": [
       {
-        "allValue": "",
-        "current": {},
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "otel-collector:8889",
+          "value": "otel-collector:8889"
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_THANOS}"
+          "uid": "PBFA97CFB590B2093"
         },
-        "definition": "label_values(jvm_memory_used_bytes, instance)",
+        "definition": "label_values(instance)",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "Instance",
         "multi": false,
         "name": "instance",
         "options": [],
         "query": {
-          "query": "label_values(jvm_memory_used_bytes, instance)",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "allValue": "",
-        "current": {},
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${DS_THANOS}"
-        },
-        "definition": "label_values(jvm_memory_used_bytes, pod)",
-        "hide": 0,
-        "includeAll": true,
-        "label": "Pod (Kubernetes)",
-        "multi": false,
-        "name": "pod",
-        "options": [],
-        "query": {
-          "query": "label_values(jvm_memory_used_bytes, pod)",
+          "query": "label_values(instance)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -1199,8 +1164,8 @@
     ]
   },
   "timezone": "",
-  "title": "JMX Overview (OpenTelemetry)",
-  "uid": "a_vQkWpSz",
-  "version": 14,
+  "title": "2 - JMX Overview (OpenTelemetry)",
+  "uid": "a_vQkWpSz2",
+  "version": 2,
   "weekStart": ""
 }

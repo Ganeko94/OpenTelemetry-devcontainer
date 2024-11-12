@@ -4103,17 +4103,17 @@
   "templating": {
     "list": [
       {
+        "allValue": null,
         "current": {
-          "isNone": true,
           "selected": false,
-          "text": "None",
-          "value": ""
+          "text": "host.docker.internal:9000",
+          "value": "host.docker.internal:9000"
         },
         "datasource": {
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
-        "definition": "query_result(jmx_exporter_build_info{job=\"$job\"})",
+        "definition": "label_values(instance)",
         "hide": 0,
         "includeAll": false,
         "label": "Instance",
@@ -4121,11 +4121,11 @@
         "name": "instance",
         "options": [],
         "query": {
-          "query": "query_result(jmx_exporter_build_info{job=\"$job\"})",
+          "query": "label_values(instance)",
           "refId": "Central prometheus-instance-Variable-Query"
         },
         "refresh": 1,
-        "regex": "/.*instance=\"([^\"]+).*/",
+        "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
@@ -4225,7 +4225,7 @@
     ]
   },
   "timezone": "",
-  "title": "JVM dashboard - Import by ID",
+  "title": "1 - JVM dashboard (Prometheus JMX) - Import by ID",
   "uid": "70AJwSDMk2",
   "version": 2,
   "weekStart": ""
