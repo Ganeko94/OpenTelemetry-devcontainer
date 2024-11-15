@@ -2924,7 +2924,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "sum(java_lang_GarbageCollector_LastGcInfo_memoryUsageBeforeGc_used{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_LastGcInfo_memoryUsageBeforeGc_used{instance=\"$instance\"})",
+          "expr": "sum(java_lang_GarbageCollector_LastGcInfo_memoryUsageBeforeGc_used{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_LastGcInfo_memoryUsageBeforeGc_used{instance=\"$instance\"} OR {__name__=~\"java_lang_G1_Young_Generation_memoryUsageBeforeGc_(CompressedClassSpace|CodeHeapNonNmethods|CodeHeapNonProfiledNmethods|CodeHeapProfiledNmethods|G1EdenSpace|G1OldGen|G1SurvivorSpace|Metaspace)_used\", instance=\"$instance\"})",
           "instant": false,
           "interval": "",
           "legendFormat": "Before",
@@ -2935,7 +2935,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "sum(java_lang_GarbageCollector_LastGcInfo_memoryUsageAfterGc_used{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_LastGcInfo_memoryUsageAfterGc_used{instance=\"$instance\"})",
+          "expr": "sum(java_lang_GarbageCollector_LastGcInfo_memoryUsageAfterGc_used{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_LastGcInfo_memoryUsageAfterGc_used{instance=\"$instance\"} OR {__name__=~\"java_lang_G1_Young_Generation_memoryUsageAfterGc_(CompressedClassSpace|CodeHeapNonNmethods|CodeHeapNonProfiledNmethods|CodeHeapProfiledNmethods|G1EdenSpace|G1OldGen|G1SurvivorSpace|Metaspace)_used\", instance=\"$instance\"})",
           "instant": false,
           "interval": "",
           "legendFormat": "After",
