@@ -3,34 +3,34 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "limit": 100,
         "name": "Annotations & Alerts",
         "showIn": 0,
-        "target": {
-          "limit": 100,
-          "matchAny": false,
-          "tags": [],
-          "type": "dashboard"
-        },
         "type": "dashboard"
       }
     ]
   },
   "description": "java.lang metrics dashboard",
   "editable": true,
+  "fiscalYearStartMonth": 0,
   "gnetId": 12932,
   "graphTooltip": 0,
-  "id": 37,
-  "iteration": 1728647234188,
+  "id": 43,
   "links": [],
   "liveNow": false,
   "panels": [
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -83,22 +83,28 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "exemplar": true,
           "expr": "java_lang_OperatingSystem_SystemLoadAverage{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "OS Load average",
       "type": "stat"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -148,9 +154,13 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "(java_lang_OperatingSystem_TotalPhysicalMemorySize{instance=\"$instance\"} - java_lang_OperatingSystem_FreePhysicalMemorySize{instance=\"$instance\"}) / java_lang_OperatingSystem_TotalPhysicalMemorySize{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -158,13 +168,14 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "OS Used RAM",
       "type": "gauge"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -214,9 +225,13 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "(java_lang_OperatingSystem_TotalSwapSpaceSize{instance=\"$instance\"} - java_lang_OperatingSystem_FreeSwapSpaceSize{instance=\"$instance\"}) / java_lang_OperatingSystem_TotalSwapSpaceSize{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -224,13 +239,14 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "OS Used Swap",
       "type": "gauge"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 1,
@@ -271,9 +287,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Runtime_Uptime{instance=\"$instance\"}",
           "instant": false,
           "interval": "",
@@ -282,13 +302,14 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "JVM Uptime",
       "type": "stat"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "description": "Used Non-Heap is not gauge because I don't have treshold",
       "fieldConfig": {
         "defaults": {
@@ -339,9 +360,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Memory_NonHeapMemoryUsage_used{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -349,13 +374,14 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Used Non-Heap",
       "type": "stat"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -407,9 +433,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Memory_HeapMemoryUsage_used{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -417,15 +447,16 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Used Heap",
       "transformations": [],
       "type": "stat"
     },
     {
       "collapsed": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -434,7 +465,15 @@
       },
       "id": 18,
       "panels": [],
-      "repeat": null,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Memory",
       "type": "row"
     },
@@ -447,7 +486,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "decimals": 0,
       "fill": 10,
       "fillGradient": 0,
@@ -467,7 +509,6 @@
         "min": false,
         "rightSide": false,
         "show": true,
-        "sideWidth": null,
         "total": false,
         "values": false
       },
@@ -478,7 +519,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -494,18 +535,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Memory_NonHeapMemoryUsage_committed{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Committed",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Memory_NonHeapMemoryUsage_used{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Used",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Memory_NonHeapMemoryUsage_max{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -514,9 +567,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Non-Heap usage",
       "tooltip": {
         "shared": true,
@@ -525,33 +576,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -563,7 +605,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "decimals": 0,
       "fill": 10,
       "fillGradient": 0,
@@ -583,7 +628,6 @@
         "min": false,
         "rightSide": false,
         "show": true,
-        "sideWidth": null,
         "total": false,
         "values": false
       },
@@ -594,7 +638,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -610,18 +654,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Memory_HeapMemoryUsage_committed{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Committed",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Memory_HeapMemoryUsage_used{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Used",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Memory_HeapMemoryUsage_max{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -630,9 +686,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Heap usage",
       "tooltip": {
         "shared": true,
@@ -641,33 +695,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -679,7 +724,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "decimals": 0,
       "fill": 10,
       "fillGradient": 0,
@@ -699,7 +747,6 @@
         "min": false,
         "rightSide": false,
         "show": true,
-        "sideWidth": null,
         "total": false,
         "values": false
       },
@@ -710,7 +757,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -726,18 +773,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_MemoryPool_Usage_commited{name=\"Metaspace\",instance=\"$instance\"} OR java_lang_Metaspace_Usage_committed{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Committed",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_MemoryPool_Usage_used{name=\"Metaspace\",instance=\"$instance\"} OR java_lang_Metaspace_Usage_used{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Used",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_MemoryPool_Usage_max{name=\"Metaspace\",instance=\"$instance\"} OR java_lang_Metaspace_Usage_max{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -746,9 +805,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Metaspace usage",
       "tooltip": {
         "shared": true,
@@ -757,33 +814,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -795,7 +843,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "decimals": 0,
       "fill": 10,
       "fillGradient": 0,
@@ -815,7 +866,6 @@
         "min": false,
         "rightSide": false,
         "show": true,
-        "sideWidth": null,
         "total": false,
         "values": false
       },
@@ -826,7 +876,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -842,19 +892,34 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "java_lang_MemoryPool_Usage_committed{name=\"G1 Old Gen\",instance=\"$instance\"} OR java_lang_G1_Old_Gen_Usage_committed{instance=\"$instance\"}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "exemplar": true,
+          "expr": "java_lang_MemoryPool_Usage_committed{name=\"PS Old Gen\",instance=\"$instance\"} OR java_lang_G1_Old_Gen_Usage_committed{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Committed",
           "refId": "A"
         },
         {
-          "expr": "java_lang_MemoryPool_Usage_used{name=\"G1 Old Gen\",instance=\"$instance\"} OR java_lang_G1_Old_Gen_Usage_used{instance=\"$instance\"}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "exemplar": true,
+          "expr": "java_lang_MemoryPool_Usage_used{name=\"PS Old Gen\",instance=\"$instance\"} OR java_lang_G1_Old_Gen_Usage_used{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Used",
           "refId": "B"
         },
         {
-          "expr": "java_lang_MemoryPool_Usage_max{name=\"G1 Old Gen\",instance=\"$instance\"} OR java_lang_G1_Old_Gen_Usage_max{instance=\"$instance\"}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "exemplar": true,
+          "expr": "java_lang_MemoryPool_Usage_max{name=\"PS Old Gen\",instance=\"$instance\"} OR java_lang_G1_Old_Gen_Usage_max{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "Max",
@@ -862,10 +927,8 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
-      "title": "G1 Old Gen usage",
+      "title": "PS Old Gen usage",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -873,33 +936,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -911,7 +965,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "decimals": 0,
       "fill": 10,
       "fillGradient": 0,
@@ -931,7 +988,6 @@
         "min": false,
         "rightSide": false,
         "show": true,
-        "sideWidth": null,
         "total": false,
         "values": false
       },
@@ -942,7 +998,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -958,18 +1014,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_MemoryPool_Usage_committed{name=\"Compressed Class Space\",instance=\"$instance\"} OR java_lang_Compressed_Class_Space_Usage_committed{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Committed",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_MemoryPool_Usage_used{name=\"Compressed Class Space\",instance=\"$instance\"} OR java_lang_Compressed_Class_Space_Usage_used{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Used",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_MemoryPool_Usage_max{name=\"Compressed Class Space\",instance=\"$instance\"} OR java_lang_Compressed_Class_Space_Usage_max{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -978,9 +1046,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Compressed Classs Space usage",
       "tooltip": {
         "shared": true,
@@ -989,33 +1055,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1027,7 +1084,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "decimals": 0,
       "description": "Only Java < 9",
       "fill": 10,
@@ -1048,7 +1108,6 @@
         "min": false,
         "rightSide": false,
         "show": true,
-        "sideWidth": null,
         "total": false,
         "values": false
       },
@@ -1059,7 +1118,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1075,18 +1134,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_MemoryPool_Usage_committed{name=\"Code Cache\",instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Committed",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_MemoryPool_Usage_used{name=\"Code Cache\",instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Used",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_MemoryPool_Usage_max{name=\"Code Cache\",instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -1095,9 +1166,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Code Cache usage",
       "tooltip": {
         "shared": true,
@@ -1106,33 +1175,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1144,7 +1204,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "decimals": 0,
       "description": "Only Java 9+",
       "fill": 10,
@@ -1165,7 +1228,6 @@
         "min": false,
         "rightSide": false,
         "show": true,
-        "sideWidth": null,
         "total": false,
         "values": false
       },
@@ -1176,7 +1238,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1192,18 +1254,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_CodeHeap_profiled_nmethods_Usage_committed{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Committed",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_CodeHeap_profiled_nmethods_Usage_used{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Used",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_CodeHeap_profiled_nmethods_Usage_max{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -1212,9 +1286,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Code Heap - Profiled NMethods usage",
       "tooltip": {
         "shared": true,
@@ -1223,33 +1295,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1261,7 +1324,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "decimals": 0,
       "description": "Only Java 9+",
       "fill": 10,
@@ -1282,7 +1348,6 @@
         "min": false,
         "rightSide": false,
         "show": true,
-        "sideWidth": null,
         "total": false,
         "values": false
       },
@@ -1293,7 +1358,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1309,18 +1374,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_CodeHeap_profiled_nmethods_Usage_committed{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Committed",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_CodeHeap_profiled_nmethods_Usage_used{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Used",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_CodeHeap_profiled_nmethods_Usage_max{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -1329,9 +1406,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Code Heap - Profiled NMethods usage",
       "tooltip": {
         "shared": true,
@@ -1340,33 +1415,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1378,7 +1444,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "decimals": 0,
       "description": "Only Java 9+",
       "fill": 10,
@@ -1399,7 +1468,6 @@
         "min": false,
         "rightSide": false,
         "show": true,
-        "sideWidth": null,
         "total": false,
         "values": false
       },
@@ -1410,7 +1478,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1426,18 +1494,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_CodeHeap_non_nmethods_Usage_committed{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Committed",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_CodeHeap_non_nmethods_Usage_used{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Used",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_CodeHeap_non_nmethods_Usage_max{instance=\"$instance\"}",
           "interval": "",
           "intervalFactor": 1,
@@ -1446,9 +1526,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Code Heap - Non-NMethods usage",
       "tooltip": {
         "shared": true,
@@ -1457,38 +1535,32 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
       "collapsed": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1497,6 +1569,15 @@
       },
       "id": 35,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Garbage collection",
       "type": "row"
     },
@@ -1509,7 +1590,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
@@ -1538,7 +1622,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "9.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1555,6 +1639,11 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "exemplar": true,
           "expr": "sum(java_lang_GarbageCollector_LastGcInfo_memoryUsageBeforeGc_used{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_LastGcInfo_memoryUsageBeforeGc_used{instance=\"$instance\"})",
           "instant": false,
           "interval": "",
@@ -1562,6 +1651,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "sum(java_lang_GarbageCollector_LastGcInfo_memoryUsageAfterGc_used{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_LastGcInfo_memoryUsageAfterGc_used{instance=\"$instance\"})",
           "instant": false,
           "interval": "",
@@ -1569,6 +1662,10 @@
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "sum(java_lang_GarbageCollector_LastGcInfo_memoryUsageBeforeGc_used{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_LastGcInfo_memoryUsageBeforeGc_used{instance=\"$instance\"}) - sum(java_lang_GarbageCollector_LastGcInfo_memoryUsageAfterGc_used{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_LastGcInfo_memoryUsageAfterGc_used{instance=\"$instance\"})",
           "interval": "",
           "legendFormat": "Collected",
@@ -1576,9 +1673,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "G1 Young generation - Memory Before / After GC",
       "tooltip": {
         "shared": true,
@@ -1587,9 +1682,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -1597,24 +1690,17 @@
         {
           "decimals": 0,
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1622,7 +1708,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "description": "",
       "fill": 1,
       "fillGradient": 0,
@@ -1650,7 +1739,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "7.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1665,12 +1754,20 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_GarbageCollector_CollectionCount{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_CollectionCount{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Collection count",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_GarbageCollector_LastGcInfo_duration{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_LastGcInfo_duration{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Duration",
@@ -1678,9 +1775,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "G1 Young generation - Collection count vs duration",
       "tooltip": {
         "shared": true,
@@ -1689,9 +1784,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -1700,23 +1793,16 @@
           "format": "short",
           "label": "",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
-          "decimals": null,
           "format": "ms",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1726,7 +1812,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "description": "",
       "fill": 1,
       "fillGradient": 0,
@@ -1754,7 +1843,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "7.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1764,6 +1853,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_GarbageCollector_LastGcInfo_GcThreadCount{name=\"G1 Young Generation\",instance=\"$instance\"} OR java_lang_G1_Young_Generation_LastGcInfo_GcThreadCount{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Threads",
@@ -1771,9 +1864,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "G1 Young generation - Last GC thread count",
       "tooltip": {
         "shared": true,
@@ -1782,39 +1873,32 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
-          "decimals": null,
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
       "collapsed": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1823,6 +1907,15 @@
       },
       "id": 24,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Threads",
       "type": "row"
     },
@@ -1834,7 +1927,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
@@ -1861,7 +1957,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "7.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1877,18 +1973,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Threading_PeakThreadCount{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Peak",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Threading_ThreadCount{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Non-Daemon",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Threading_DaemonThreadCount{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Daemon",
@@ -1896,9 +2004,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Thread count",
       "tooltip": {
         "shared": true,
@@ -1907,33 +2013,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1944,7 +2041,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
@@ -1971,7 +2071,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "7.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1981,6 +2081,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Threading_CurrentThreadCpuTime{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Time",
@@ -1988,9 +2092,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Current Thread CPU time",
       "tooltip": {
         "shared": true,
@@ -1999,38 +2101,32 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "ns",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
       "collapsed": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2039,6 +2135,15 @@
       },
       "id": 30,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "ClassLoading",
       "type": "row"
     },
@@ -2053,7 +2158,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "fill": 3,
       "fillGradient": 0,
       "gridPos": {
@@ -2080,7 +2188,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "7.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2096,18 +2204,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_ClassLoading_TotalLoadedClassCount{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Total loaded",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_ClassLoading_LoadedClassCount{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Currently loaded",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_ClassLoading_UnloadedClassCount{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Unloaded",
@@ -2115,9 +2235,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "ClassLoading",
       "tooltip": {
         "shared": true,
@@ -2126,38 +2244,32 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
       "collapsed": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2166,6 +2278,15 @@
       },
       "id": 37,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Compilation",
       "type": "row"
     },
@@ -2174,7 +2295,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -2201,7 +2325,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "7.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2211,6 +2335,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_Compilation_TotalCompilationTime{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Total compilation time",
@@ -2218,9 +2346,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Total compilation time",
       "tooltip": {
         "shared": true,
@@ -2229,9 +2355,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -2241,22 +2365,16 @@
           "format": "ms",
           "label": "",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -2266,7 +2384,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -2293,7 +2414,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "7.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2303,6 +2424,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "irate(java_lang_Compilation_TotalCompilationTime{instance=\"$instance\"}[40s])",
           "interval": "",
           "legendFormat": "Total compilation time",
@@ -2310,9 +2435,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Compilation time",
       "tooltip": {
         "shared": true,
@@ -2321,9 +2444,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -2333,27 +2454,24 @@
           "format": "ms",
           "label": "",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
       "collapsed": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2362,6 +2480,15 @@
       },
       "id": 26,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Operating system",
       "type": "row"
     },
@@ -2373,7 +2500,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "fill": 7,
       "fillGradient": 0,
       "gridPos": {
@@ -2402,7 +2532,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "7.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2418,12 +2548,20 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_OperatingSystem_OpenFileDescriptorCount{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Opened",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_OperatingSystem_MaxFileDescriptorCount{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Max",
@@ -2431,9 +2569,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "File descriptors",
       "tooltip": {
         "shared": true,
@@ -2442,33 +2578,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -2478,7 +2605,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "d7abt6XGz"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -2507,7 +2637,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.2.0-33922pre",
+      "pluginVersion": "7.5.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2523,18 +2653,30 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_OperatingSystem_CommittedVirtualMemorySize{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Commited Virtual Memory",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_OperatingSystem_TotalPhysicalMemorySize{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Total Physical Memory",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "d7abt6XGz"
+          },
           "expr": "java_lang_OperatingSystem_FreePhysicalMemorySize{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Free Physical Memory",
@@ -2542,9 +2684,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "OS Memory",
       "tooltip": {
         "shared": true,
@@ -2553,38 +2693,29 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "bytes",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     }
   ],
   "refresh": "15s",
-  "schemaVersion": 31,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [
     "Java",
@@ -2593,16 +2724,16 @@
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
           "selected": true,
-          "text": "Multisize-QA-Performance-Festa:8100",
-          "value": "Multisize-QA-Performance-Festa:8100"
+          "text": "192.168.70.193:8000",
+          "value": "192.168.70.193:8000"
         },
-        "datasource": "Prometheus",
-        "definition": "label_values(instance)",
-        "description": null,
-        "error": null,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "d7abt6XGz"
+        },
+        "definition": "query_result(jmx_exporter_build_info{job=\"$job\"})",
         "hide": 0,
         "includeAll": false,
         "label": "Instance",
@@ -2610,11 +2741,11 @@
         "name": "instance",
         "options": [],
         "query": {
-          "query": "label_values(instance)",
+          "query": "query_result(jmx_exporter_build_info{job=\"$job\"})",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
-        "regex": ".*:8100",
+        "regex": "/.*instance=\"([^\"]+).*/",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
@@ -2623,8 +2754,6 @@
         "useTags": false
       },
       {
-        "description": null,
-        "error": null,
         "hide": 2,
         "label": "JOB",
         "name": "job",
@@ -2635,7 +2764,7 @@
     ]
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {
@@ -2649,7 +2778,8 @@
     ]
   },
   "timezone": "",
-  "title": "99 - (Disabled) JVM dashboard - Original from QA",
-  "uid": "70AJwSDMk1",
-  "version": 5
+  "title": "98 - JVM dashboard - Homer 192.168.1.4 (Original)",
+  "uid": "70AJwSDMk",
+  "version": 8,
+  "weekStart": ""
 }
