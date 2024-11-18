@@ -3057,7 +3057,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "rate(java_lang_GarbageCollector_CollectionCount{name=\"G1 Young Generation\",instance=\"$instance\"}[$range]) OR rate(java_lang_G1_Young_Generation_CollectionCount{instance=\"$instance\"}[$range])",
+          "expr": "rate(java_lang_GarbageCollector_CollectionCount{name=\"G1 Young Generation\",instance=\"$instance\"}[$range]) OR rate(java_lang_G1_Young_Generation_CollectionCount{instance=\"$instance\"}[$range]) OR rate(java_lang_G1_Young_Generation_CollectionCount_total{instance=\"$instance\"}[$range])",
           "interval": "",
           "legendFormat": "Collection count",
           "range": true,
@@ -3616,7 +3616,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "java_lang_ClassLoading_TotalLoadedClassCount{instance=\"$instance\"}",
+          "expr": "java_lang_ClassLoading_TotalLoadedClassCount{instance=\"$instance\"} OR java_lang_ClassLoading_TotalLoadedClassCount_total{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Total loaded",
           "refId": "B"
@@ -3636,7 +3636,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "java_lang_ClassLoading_UnloadedClassCount{instance=\"$instance\"}",
+          "expr": "java_lang_ClassLoading_UnloadedClassCount{instance=\"$instance\"} OR java_lang_ClassLoading_UnloadedClassCount_total{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Unloaded",
           "refId": "C"
@@ -3742,7 +3742,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "java_lang_Compilation_TotalCompilationTime{instance=\"$instance\"}",
+          "expr": "java_lang_Compilation_TotalCompilationTime{instance=\"$instance\"} OR java_lang_Compilation_TotalCompilationTime_total{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "Total compilation time",
           "refId": "A"
@@ -3753,7 +3753,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "irate(java_lang_Compilation_TotalCompilationTime{instance=\"$instance\"}[$range])",
+          "expr": "irate(java_lang_Compilation_TotalCompilationTime{instance=\"$instance\"}[$range]) OR irate(java_lang_Compilation_TotalCompilationTime_total{instance=\"$instance\"}[$range])",
           "hide": false,
           "interval": "",
           "legendFormat": "Compilation time rate",
