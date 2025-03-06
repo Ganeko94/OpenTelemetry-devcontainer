@@ -46,6 +46,14 @@ services:
       - ./grafana-datasource.yml:/etc/grafana/provisioning/datasources/grafana-datasource.yaml
       - ./grafana-dashboard.yaml:/etc/grafana/provisioning/dashboards/main.yaml
       - ./grafana-dashboards:/var/lib/grafana/dashboards
+#
+#  grafana-tempo:
+#    image: grafana/tempo:latest
+#    command: [ "-config.file=/etc/tempo.yaml" ]
+#    volumes:
+#      - ./tempo.yaml:/etc/tempo.yaml
+#    ports:
+#      - "3200:3200"
   
   otel-collector:
     image: otel/opentelemetry-collector-contrib:latest

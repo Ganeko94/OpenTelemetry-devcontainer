@@ -3,6 +3,15 @@ receivers:
     protocols:
       grpc:
         endpoint: 0.0.0.0:4317
+#  prometheus:
+#    config:
+#      scrape_configs:
+#        - job_name: 'Backend'
+#          static_configs:
+#            - targets: ['host.docker.internal:9000']
+#        - job_name: 'CMS'
+#          static_configs:
+#            - targets: ['host.docker.internal:8100']
 #  jmx:
 #    jar_path: /opt/opentelemetry-jmx-metrics.jar
 #    #endpoint: 0.0.0.0:5678
@@ -30,12 +39,19 @@ exporters:
   debug:
     verbosity: detailed # Es opcional, lo add temporalmente para ver como son las trazas que suelta
   otlp/jaeger: # Jaeger supports OTLP directly. The default port for OTLP/gRPC is 4317
-    #endpoint: otel-collector:4317
     endpoint: jaeger-all-in-one:4317
     tls:
       insecure: true
+#  otlp/tempo:
+#    endpoint: tempo:4317
   prometheus:
     endpoint: "0.0.0.0:8889"
+  prometheusremotewrite:
+    endpoint: "http://prometheus:9090/api/v1/write"
+    tls:
+      insecure: true
+    resource_to_telemetry_conversion:
+      enabled: true # Convert resource attributes to metric labels
 #  loki:
 #    endpoint: http://loki:3100/loki/api/v1/push
 
@@ -43,11 +59,12 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
+#      exporters: [debug, otlp/jaeger, otlp/tempo]
       exporters: [debug, otlp/jaeger]
     metrics:
       #receivers: [otlp, jmx]
       receivers: [otlp]
-      exporters: [debug, prometheus]
+      exporters: [debug, prometheus, prometheusremotewrite]
 #    logs:
 #      receivers: [otlp]
 #      exporters: [debug, logging]
