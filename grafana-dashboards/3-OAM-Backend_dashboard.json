@@ -84,7 +84,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${backend_prefix}successful_logins_total{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${backend_prefix}successful_logins_total{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -160,7 +160,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${backend_prefix}login_attempts_total{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${backend_prefix}login_attempts_total{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -242,7 +242,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "1 - (clamp_min(${backend_prefix}successful_logins_total{instance=\"$instance\", exported_job=\"$exported_job\"}, 1) / clamp_min(${backend_prefix}login_attempts_total{instance=\"$instance\", exported_job=\"$exported_job\"}, 1))",
+          "expr": "1 - (clamp_min(${backend_prefix}successful_logins_total{exported_instance=\"$instance\", exported_job=\"$exported_job\"}, 1) / clamp_min(${backend_prefix}login_attempts_total{exported_instance=\"$instance\", exported_job=\"$exported_job\"}, 1))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -256,22 +256,22 @@
       "type": "stat"
     }
   ],
-  "refresh": "15s",
+  "refresh": "10s",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "selected": false,
-          "text": "otel-collector:8889",
-          "value": "otel-collector:8889"
+          "selected": true,
+          "text": "nemergent-backend",
+          "value": "nemergent-backend"
         },
         "datasource": {
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
-        "definition": "label_values(instance)",
+        "definition": "label_values({exported_job=~\"nemergent-backend\"},exported_instance)",
         "hide": 0,
         "includeAll": false,
         "label": "Instance",
@@ -280,7 +280,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(instance)",
+          "query": "label_values({exported_job=~\"nemergent-backend\"},exported_instance)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -291,7 +291,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "nemergent-backend",
           "value": "nemergent-backend"
         },
@@ -299,7 +299,7 @@
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
-        "definition": "label_values(target_info{instance=\"$instance\"},exported_job)",
+        "definition": "label_values(target_info{exported_instance=~\"$instance\"},exported_job)",
         "description": "This applies only to deployments monitored by OpenTelemetry and using the OTEL Collector.",
         "hide": 0,
         "includeAll": false,
@@ -309,7 +309,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(target_info{instance=\"$instance\"},exported_job)",
+          "query": "label_values(target_info{exported_instance=~\"$instance\"},exported_job)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -335,7 +335,7 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "3 - OAM Backend",
+  "title": "OAM Backend - Custom metrics",
   "uid": "ee5b04za8re2oc",
   "version": 1,
   "weekStart": ""

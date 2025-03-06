@@ -133,7 +133,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_cpu_recent_utilization_ratio{instance=~\"$instance\",exported_job=~\"$exported_job\"}",
+          "expr": "jvm_cpu_recent_utilization_ratio{exported_instance=~\"$instance\",exported_job=~\"$exported_job\"}",
           "legendFormat": "CPU utilization (whole system)",
           "range": true,
           "refId": "A"
@@ -144,7 +144,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_cpu_recent_utilization_ratio{instance=~\"$instance\",exported_job=~\"$exported_job\"}",
+          "expr": "jvm_cpu_recent_utilization_ratio{exported_instance=~\"$instance\",exported_job=~\"$exported_job\"}",
           "hide": false,
           "legendFormat": "JVM CPU utilization",
           "range": true,
@@ -240,7 +240,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_system_cpu_load_1m{instance=~\"$instance\",exported_job=~\"$exported_job\"}",
+          "expr": "jvm_system_cpu_load_1m{exported_instance=~\"$instance\",exported_job=~\"$exported_job\"}",
           "legendFormat": "Average CPU load",
           "range": true,
           "refId": "A"
@@ -349,7 +349,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(jvm_memory_used_bytes{instance=~\"$instance\",exported_job=~\"$exported_job\",jvm_memory_type=\"heap\"})",
+          "expr": "sum(jvm_memory_used_bytes{exported_instance=~\"$instance\",exported_job=~\"$exported_job\",jvm_memory_type=\"heap\"})",
           "legendFormat": "Heap used",
           "range": true,
           "refId": "A"
@@ -360,7 +360,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(jvm_memory_committed_bytes{instance=~\"$instance\",exported_job=~\"$exported_job\",jvm_memory_type=\"heap\"})",
+          "expr": "sum(jvm_memory_committed_bytes{exported_instance=~\"$instance\",exported_job=~\"$exported_job\",jvm_memory_type=\"heap\"})",
           "hide": false,
           "legendFormat": "Heap committed",
           "range": true,
@@ -372,7 +372,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(jvm_memory_limit_bytes{instance=~\"$instance\",exported_job=~\"$exported_job\",jvm_memory_type=\"heap\"})",
+          "expr": "sum(jvm_memory_limit_bytes{exported_instance=~\"$instance\",exported_job=~\"$exported_job\",jvm_memory_type=\"heap\"})",
           "hide": false,
           "legendFormat": "Heap max obtainable",
           "range": true,
@@ -469,7 +469,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_memory_used_bytes{instance=~\"$instance\",exported_job=~\"$exported_job\"}",
+          "expr": "jvm_memory_used_bytes{exported_instance=~\"$instance\",exported_job=~\"$exported_job\"}",
           "legendFormat": "{{ jvm_memory_type }} - {{ jvm_memory_pool_name }}",
           "range": true,
           "refId": "A"
@@ -565,7 +565,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_memory_committed_bytes{instance=~\"$instance\",exported_job=~\"$exported_job\"}",
+          "expr": "jvm_memory_committed_bytes{exported_instance=~\"$instance\",exported_job=~\"$exported_job\"}",
           "legendFormat": "{{ jvm_memory_type }} - {{ jvm_memory_pool_name }}",
           "range": true,
           "refId": "A"
@@ -661,7 +661,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_memory_limit_bytes{instance=~\"$instance\",exported_job=~\"$exported_job\"}",
+          "expr": "jvm_memory_limit_bytes{exported_instance=~\"$instance\",exported_job=~\"$exported_job\"}",
           "legendFormat": "{{ jvm_memory_type }} - {{ jvm_memory_pool_name }}",
           "range": true,
           "refId": "A"
@@ -769,7 +769,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_thread_count{instance=~\"$instance\",exported_job=~\"$exported_job\"}",
+          "expr": "jvm_thread_count{exported_instance=~\"$instance\",exported_job=~\"$exported_job\"}",
           "legendFormat": "Daemon: {{jvm_thread_daemon}} - State: {{jvm_thread_state}}",
           "range": true,
           "refId": "A"
@@ -864,7 +864,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(round(rate(jvm_gc_duration_seconds_bucket{instance=~\"$instance\",exported_job=~\"$exported_job\",jvm_gc_action=\"end of minor GC\"}[$__interval]) * $__interval_ms / 1000)) by (le)",
+          "expr": "sum(round(rate(jvm_gc_duration_seconds_bucket{exported_instance=~\"$instance\",exported_job=~\"$exported_job\",jvm_gc_action=\"end of minor GC\"}[$__interval]) * $__interval_ms / 1000)) by (le)",
           "format": "heatmap",
           "interval": "5m",
           "legendFormat": "{{ le }}",
@@ -947,7 +947,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(round(rate(jvm_gc_duration_seconds_bucket{instance=~\"$instance\",exported_job=~\"$exported_job\",jvm_gc_action=\"end of major GC\"}[$__interval]) * $__interval_ms / 1000)) by (le)",
+          "expr": "sum(round(rate(jvm_gc_duration_seconds_bucket{exported_instance=~\"$instance\",exported_job=~\"$exported_job\",jvm_gc_action=\"end of major GC\"}[$__interval]) * $__interval_ms / 1000)) by (le)",
           "format": "heatmap",
           "interval": "5m",
           "legendFormat": "{{ le }}",
@@ -1058,7 +1058,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_class_count{instance=~\"$instance\",exported_job=~\"$exported_job\"}",
+          "expr": "jvm_class_count{exported_instance=~\"$instance\",exported_job=~\"$exported_job\"}",
           "legendFormat": "Currently loaded",
           "range": true,
           "refId": "A"
@@ -1069,7 +1069,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_class_loaded_total{instance=~\"$instance\",exported_job=~\"$exported_job\"}",
+          "expr": "jvm_class_loaded_total{exported_instance=~\"$instance\",exported_job=~\"$exported_job\"}",
           "hide": false,
           "legendFormat": "Loaded since JVM start",
           "range": true,
@@ -1081,7 +1081,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "jvm_class_unloaded_total{instance=~\"$instance\",exported_job=~\"$exported_job\"}",
+          "expr": "jvm_class_unloaded_total{exported_instance=~\"$instance\",exported_job=~\"$exported_job\"}",
           "hide": false,
           "legendFormat": "Unloaded since JVM start",
           "range": true,
@@ -1092,7 +1092,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": false,
+  "refresh": "10s",
   "schemaVersion": 39,
   "tags": [
     "JVM",
@@ -1102,7 +1102,6 @@
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
           "selected": false,
           "text": "otel-collector:8889",
@@ -1112,7 +1111,7 @@
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
-        "definition": "label_values(instance)",
+        "definition": "label_values({exported_job=~\"nemergent-backend|nemergent-cms-gms\"},exported_instance)",
         "hide": 0,
         "includeAll": false,
         "label": "Instance",
@@ -1120,7 +1119,7 @@
         "name": "instance",
         "options": [],
         "query": {
-          "query": "label_values(instance)",
+          "query": "label_values({exported_job=~\"nemergent-backend|nemergent-cms-gms\"},exported_instance)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -1139,7 +1138,7 @@
           "text": "None",
           "value": ""
         },
-        "definition": "label_values(target_info{instance=\"$instance\"}, exported_job)",
+        "definition": "label_values(target_info{exported_instance=~\"$instance\"},exported_job)",
         "description": "This applies only to deployments monitored by OpenTelemetry and using the OTEL Collector.",
         "hide": 0,
         "includeAll": false,
@@ -1149,7 +1148,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(target_info{instance=\"$instance\"}, exported_job)",
+          "query": "label_values(target_info{exported_instance=~\"$instance\"},exported_job)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -1190,7 +1189,7 @@
     ]
   },
   "timezone": "",
-  "title": "1 - JMX Overview (OpenTelemetry)",
+  "title": "JMX Overview (OpenTelemetry)",
   "uid": "a_vQkWpSz2",
   "version": 2,
   "weekStart": ""

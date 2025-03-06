@@ -81,7 +81,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${cms_prefix}received_subscriptions_active{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${cms_prefix}received_subscriptions_active{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -154,7 +154,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${cms_prefix}received_subscriptions_total{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${cms_prefix}received_subscriptions_total{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -228,7 +228,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${cms_prefix}external_subscriptions_active{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${cms_prefix}external_subscriptions_active{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -302,7 +302,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${cms_prefix}external_subscriptions_total{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${cms_prefix}external_subscriptions_total{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -376,7 +376,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${cms_prefix}document_subscriptions_active{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${cms_prefix}document_subscriptions_active{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -450,7 +450,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${cms_prefix}document_subscriptions_total{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${cms_prefix}document_subscriptions_total{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -524,7 +524,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${cms_prefix}collection_subscriptions_active{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${cms_prefix}collection_subscriptions_active{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -598,7 +598,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${cms_prefix}collection_subscriptions_total{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${cms_prefix}collection_subscriptions_total{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -672,7 +672,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${cms_prefix}actors_active{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${cms_prefix}actors_active{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -746,7 +746,7 @@
           "disableTextWrap": false,
           "editorMode": "code",
           "exemplar": false,
-          "expr": "${cms_prefix}actors_total{instance=\"$instance\", exported_job=\"$exported_job\"}",
+          "expr": "${cms_prefix}actors_total{exported_instance=\"$instance\", exported_job=\"$exported_job\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -760,39 +760,11 @@
       "type": "stat"
     }
   ],
-  "refresh": "15s",
+  "refresh": "10s",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
-      {
-        "current": {
-          "selected": false,
-          "text": "otel-collector:8889",
-          "value": "otel-collector:8889"
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "PBFA97CFB590B2093"
-        },
-        "definition": "label_values(instance)",
-        "hide": 0,
-        "includeAll": false,
-        "label": "Instance",
-        "multi": false,
-        "name": "instance",
-        "options": [],
-        "query": {
-          "qryType": 1,
-          "query": "label_values(instance)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "type": "query"
-      },
       {
         "current": {
           "selected": true,
@@ -803,7 +775,36 @@
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
-        "definition": "label_values(target_info{instance=\"$instance\"},exported_job)",
+        "definition": "label_values({exported_job=~\"nemergent-cms-gms\"},exported_instance)",
+        "description": "instance",
+        "hide": 0,
+        "includeAll": false,
+        "label": "instance",
+        "multi": false,
+        "name": "instance",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values({exported_job=~\"nemergent-cms-gms\"},exported_instance)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "nemergent-cms-gms",
+          "value": "nemergent-cms-gms"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "definition": "label_values(target_info{exported_instance=~\"$instance\"},exported_job)",
         "description": "This applies only to deployments monitored by OpenTelemetry and using the OTEL Collector.",
         "hide": 0,
         "includeAll": false,
@@ -813,7 +814,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(target_info{instance=\"$instance\"},exported_job)",
+          "query": "label_values(target_info{exported_instance=~\"$instance\"},exported_job)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -834,12 +835,12 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "4 - CMS",
+  "title": "CMS/GMS - Custom metrics",
   "uid": "ee5b04za8re2ob",
   "version": 1,
   "weekStart": ""
